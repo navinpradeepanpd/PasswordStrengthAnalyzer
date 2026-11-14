@@ -1,0 +1,23 @@
+{
+  "name": "password-strength-analyzer",
+  "version": "1.0.0",
+  "description": "A comprehensive password strength analyzer and security evaluation platform demonstrating entropy, hashing, salting, and k-anonymity.",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "dev": "concurrently -n \"SERVER,CLIENT\" -c \"cyan,magenta\" \"npm run dev --workspace=server\" \"npm run dev --workspace=client\"",
+    "dev:server": "npm run dev --workspace=server",
+    "dev:client": "npm run dev --workspace=client",
+    "build": "npm run build --workspace=client",
+    "lint": "npm run lint --workspace=client && npm run lint --workspace=server",
+    "test": "npm run test --workspace=client && npm run test --workspace=server",
+    "format": "prettier --write \"**/*.{js,jsx,json,css,md}\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.5",
+    "prettier": "^3.10.1"
+  }
+}
